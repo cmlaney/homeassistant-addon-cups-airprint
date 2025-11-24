@@ -7,6 +7,7 @@ until [ -e /var/run/avahi-daemon/socket ]; do
 done
 
 bashio::log.info "Preparing directories"
+
 if [ ! -d /config/cups ]; then cp -v -R /etc/cups /config; fi
 rm -v -fR /etc/cups
 
