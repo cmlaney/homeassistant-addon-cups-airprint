@@ -36,7 +36,6 @@ RUN apt update \
         bash-completion \
         procps \
         whois \
-        libcupsimage2 \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/*
 
