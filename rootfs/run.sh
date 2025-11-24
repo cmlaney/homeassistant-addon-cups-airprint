@@ -6,6 +6,11 @@ until [ -e /var/run/avahi-daemon/socket ]; do
   sleep 1s
 done
 
+bashio::log.info "Install LP620 Printer"
+
+chmod +x /install_LP620/install.sh
+/install_LP620/install.sh
+
 bashio::log.info "Preparing directories"
 
 chmod +x /usr/lib/cups/filter/rastertoLP620
