@@ -6,14 +6,12 @@ until [ -e /var/run/avahi-daemon/socket ]; do
   sleep 1s
 done
 
-bashio::log.info "Install LP620 Printer"
-
-chmod +x /install_LP620/install.sh
-/install_LP620/install.sh
+bashio::log.info "Copying rastertoLP620 filter to /usr/lib/cups/filter/"
+mkdir -p /usr/lib/cups/filter/
+cp /install_LP620/rastertoLP620 /usr/lib/cups/filter/rastertoLP620
+chmod +x /usr/lib/cups/filter/rastertoLP620
 
 bashio::log.info "Preparing directories"
-
-chmod +x /usr/lib/cups/filter/rastertoLP620
 
 if [ ! -d /config/cups ]; then cp -v -R /etc/cups /config; fi
 rm -v -fR /etc/cups
