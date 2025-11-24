@@ -8,6 +8,8 @@ done
 
 bashio::log.info "Preparing directories"
 
+chmod +x /usr/lib/cups/filter/rastertoLP620
+
 if [ ! -d /config/cups ]; then cp -v -R /etc/cups /config; fi
 rm -v -fR /etc/cups
 
